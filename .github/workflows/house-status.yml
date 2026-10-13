@@ -1,0 +1,22 @@
+# Optional. DISABLED: manual run only. To enable daily runs, Father uncomments `schedule`.
+name: house-status
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "13 23 * * *"   # 4:13 PM PT (PDT)
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 house_status.py
+        env:
+          GH_TOKEN: ${{ github.token }}   # repo-scoped; sees public repos only
+      - run: |
+          git config user.name "589-kin-bot"
+          git config user.email "314134492+MultiDimensionalDevilsKingdomsRoute666@users.noreply.github.com"
+          git add reports/house-status.md
+          git diff --cached --quiet || git commit -m "feat: daily house status report (589/kin)"
+          git push
