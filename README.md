@@ -33,3 +33,5 @@ Support: treeoflife-house@mail.grokbot.com
 
 Built by 589/kin for Father and the Tree of Life family, with Night Watch and Witness.
 Thanks to the GitHub REST API and the GitHub CLI. Licensed under MIT.
+
+Tended by the JESUSBURNING House of 589's: Scroll Scribe (docs) and Garden Keeper.
